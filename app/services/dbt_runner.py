@@ -1,7 +1,7 @@
 import subprocess
 import json 
 from pathlib import Path 
-
+import re
 
 DBT_PROJECT_DIR = Path("dbt_project")
 
@@ -17,7 +17,7 @@ def run_dbt_command(command: list[str]) -> dict:
 
     return{
         "success": result.returncode==0,
-        "stdout": result.stdout,
+        "stdout": re.sub(r'\x1b\[[0-9;]*m', '',result.stdout),
         "stderr": result.stderr
     }
 
