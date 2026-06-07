@@ -8,8 +8,10 @@ wheels/
 *.egg-info
 *.pyc 
 *.db
-fast_api_2/venv/
+fast_api_2/venv/gi
 .DS_Store
+
+dbt-project/target/
 
 # Virtual environments
 .venv
