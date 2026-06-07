@@ -1,0 +1,13 @@
+name: dbt_monitor
+version: "1.0.0"
+profile: dbt_monitor  
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+target-path: "target"
+
+
+models: 
+  dbt_monitor:
+    staging:
+      +materialized: view 
