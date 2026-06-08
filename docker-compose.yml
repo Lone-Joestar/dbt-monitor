@@ -1,0 +1,19 @@
+services:
+  dbt-monitor:
+    build:  .
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    
+    volumes:
+      - ./dbt_project:/app/dbt_project
+    
+    networks:
+      - dbt-network
+  
+networks:
+  dbt-network:
+    driver: bridge
+    
