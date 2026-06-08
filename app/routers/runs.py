@@ -20,8 +20,13 @@ def trigger_run(db: Session=Depends(get_db)):
     db.add(log)
     db.commit()
     db.refresh(log)
-    return {"message":"dbt run triggered", "status": log.status,"id":log.id}
-
+    return {
+        "message": "dbt run triggered",
+        "status": log.status,
+        "id": log.id,
+        "output": result["stdout"],
+        "error": result["stderr"]
+    }
 @router.get("/")
 def get_runs(db:Session=Depends(get_db)):
     runs=db.query(RunLog).all()

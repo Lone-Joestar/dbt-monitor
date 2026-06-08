@@ -14,7 +14,7 @@ def run_dbt_command(command: list[str]) -> dict:
         text=True,
         cwd=DBT_PROJECT_DIR
     )
-
+   
     return{
         "success": result.returncode==0,
         "stdout": re.sub(r'\x1b\[[0-9;]*m', '',result.stdout),

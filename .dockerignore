@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.db
+.git/
+.gitignore
+fast_api_2/
+dbt_project/target/
+dbt_project/logs/
+dbt_project/dev.d
